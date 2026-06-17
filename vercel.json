@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/event/:id",
+      "destination": "https://brcshofygapysytsxhcy.supabase.co/functions/v1/share-event?id=:id"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
