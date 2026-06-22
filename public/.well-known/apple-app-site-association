@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAM_ID.com.unna.socialapp",
+        "paths": [
+          "/event/*",
+          "/profile/*"
+        ]
+      }
+    ]
+  }
+}

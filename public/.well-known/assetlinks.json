@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.bolt.starter",
+    "sha256_cert_fingerprints": [
+      "1F:82:E2:61:C4:FC:77:C7:05:C9:0D:B3:AB:EB:C1:13:66:67:16:B2:43:AF:C5:E3:C6:7E:4A:29:61:01:1A:D1"
+    ]
+  }
+}]
