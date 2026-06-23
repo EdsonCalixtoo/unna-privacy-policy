@@ -12,8 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SucessoRouteImport } from './routes/sucesso'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as UUsernameRouteImport } from './routes/u.$username'
 import { Route as ProfileIdRouteImport } from './routes/profile/$id'
-import { Route as EventIdRouteImport } from './routes/event/$id'
+import { Route as PostIdRouteImport } from './routes/post.$id'
+import { Route as EventIdRouteImport } from './routes/event.$id'
+import { Route as CommunityIdRouteImport } from './routes/community.$id'
 
 const SucessoRoute = SucessoRouteImport.update({
   id: '/sucesso',
@@ -30,9 +33,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UUsernameRoute = UUsernameRouteImport.update({
+  id: '/u/$username',
+  path: '/u/$username',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileIdRoute = ProfileIdRouteImport.update({
   id: '/profile/$id',
   path: '/profile/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PostIdRoute = PostIdRouteImport.update({
+  id: '/post/$id',
+  path: '/post/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventIdRoute = EventIdRouteImport.update({
@@ -40,49 +53,85 @@ const EventIdRoute = EventIdRouteImport.update({
   path: '/event/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityIdRoute = CommunityIdRouteImport.update({
+  id: '/community/$id',
+  path: '/community/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/privacidade': typeof PrivacidadeRoute
   '/sucesso': typeof SucessoRoute
+  '/community/$id': typeof CommunityIdRoute
   '/event/$id': typeof EventIdRoute
+  '/post/$id': typeof PostIdRoute
   '/profile/$id': typeof ProfileIdRoute
+  '/u/$username': typeof UUsernameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/privacidade': typeof PrivacidadeRoute
   '/sucesso': typeof SucessoRoute
+  '/community/$id': typeof CommunityIdRoute
   '/event/$id': typeof EventIdRoute
+  '/post/$id': typeof PostIdRoute
   '/profile/$id': typeof ProfileIdRoute
+  '/u/$username': typeof UUsernameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/privacidade': typeof PrivacidadeRoute
   '/sucesso': typeof SucessoRoute
+  '/community/$id': typeof CommunityIdRoute
   '/event/$id': typeof EventIdRoute
+  '/post/$id': typeof PostIdRoute
   '/profile/$id': typeof ProfileIdRoute
+  '/u/$username': typeof UUsernameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/privacidade' | '/sucesso' | '/event/$id' | '/profile/$id'
+  fullPaths:
+    | '/'
+    | '/privacidade'
+    | '/sucesso'
+    | '/community/$id'
+    | '/event/$id'
+    | '/post/$id'
+    | '/profile/$id'
+    | '/u/$username'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacidade' | '/sucesso' | '/event/$id' | '/profile/$id'
+  to:
+    | '/'
+    | '/privacidade'
+    | '/sucesso'
+    | '/community/$id'
+    | '/event/$id'
+    | '/post/$id'
+    | '/profile/$id'
+    | '/u/$username'
   id:
     | '__root__'
     | '/'
     | '/privacidade'
     | '/sucesso'
+    | '/community/$id'
     | '/event/$id'
+    | '/post/$id'
     | '/profile/$id'
+    | '/u/$username'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
   SucessoRoute: typeof SucessoRoute
+  CommunityIdRoute: typeof CommunityIdRoute
   EventIdRoute: typeof EventIdRoute
+  PostIdRoute: typeof PostIdRoute
   ProfileIdRoute: typeof ProfileIdRoute
+  UUsernameRoute: typeof UUsernameRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -108,11 +157,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/u/$username': {
+      id: '/u/$username'
+      path: '/u/$username'
+      fullPath: '/u/$username'
+      preLoaderRoute: typeof UUsernameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile/$id': {
       id: '/profile/$id'
       path: '/profile/$id'
       fullPath: '/profile/$id'
       preLoaderRoute: typeof ProfileIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/post/$id': {
+      id: '/post/$id'
+      path: '/post/$id'
+      fullPath: '/post/$id'
+      preLoaderRoute: typeof PostIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/event/$id': {
@@ -122,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community/$id': {
+      id: '/community/$id'
+      path: '/community/$id'
+      fullPath: '/community/$id'
+      preLoaderRoute: typeof CommunityIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -129,8 +199,11 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PrivacidadeRoute: PrivacidadeRoute,
   SucessoRoute: SucessoRoute,
+  CommunityIdRoute: CommunityIdRoute,
   EventIdRoute: EventIdRoute,
+  PostIdRoute: PostIdRoute,
   ProfileIdRoute: ProfileIdRoute,
+  UUsernameRoute: UUsernameRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
