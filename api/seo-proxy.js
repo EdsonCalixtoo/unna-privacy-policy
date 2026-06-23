@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
     const supabase = createClient(
       process.env.VITE_SUPABASE_URL || 'https://brcshofygapysytsxhcy.supabase.co',
-      process.env.VITE_SUPABASE_ANON_KEY || ''
+      process.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyY3Nob2Z5Z2FweXN5dHN4aGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3NDI0NzAsImV4cCI6MjA3ODMxODQ3MH0.32KwIa89o0RNCDfbdkD9WOu36Hae_3scA3caCoLwn3o'
     );
 
     let title = "UNNA Social App";
