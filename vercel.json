@@ -1,6 +1,22 @@
 {
   "rewrites": [
     {
+      "source": "/event/:id",
+      "destination": "https://brcshofygapysytsxhcy.supabase.co/functions/v1/seo-proxy?type=event&id=:id"
+    },
+    {
+      "source": "/u/:username",
+      "destination": "https://brcshofygapysytsxhcy.supabase.co/functions/v1/seo-proxy?type=u&id=:username"
+    },
+    {
+      "source": "/post/:id",
+      "destination": "https://brcshofygapysytsxhcy.supabase.co/functions/v1/seo-proxy?type=post&id=:id"
+    },
+    {
+      "source": "/community/:id",
+      "destination": "https://brcshofygapysytsxhcy.supabase.co/functions/v1/seo-proxy?type=community&id=:id"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
