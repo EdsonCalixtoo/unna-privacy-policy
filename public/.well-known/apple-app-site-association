@@ -3,10 +3,13 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAM_ID.com.unna.socialapp",
+        "appID": "TEAMID.com.unna.socialapp",
         "paths": [
           "/event/*",
-          "/profile/*"
+          "/profile/*",
+          "/u/*",
+          "/post/*",
+          "/community/*"
         ]
       }
     ]
