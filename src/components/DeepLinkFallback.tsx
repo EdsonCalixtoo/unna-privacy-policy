@@ -10,13 +10,25 @@ export function DeepLinkFallback({
 }) {
   const appScheme = `unna-social-app://${type === 'profile' ? 'u' : type}/${id}`;
   const playStoreLink = "https://play.google.com/store/apps/details?id=com.bolt.starter";
+  const appStoreLink = "https://apps.apple.com/br/app/apple-store/id000000000"; // Substituir com ID real
+  
+  const getStoreLink = () => {
+    if (typeof navigator === 'undefined') return playStoreLink;
+    const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+    if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
+      return appStoreLink;
+    }
+    return playStoreLink;
+  };
+
+  const storeLink = getStoreLink();
   
   const handleOpenApp = () => {
     window.location.href = appScheme;
     
     // Fallback if app is not installed
     setTimeout(() => {
-      window.location.href = playStoreLink;
+      window.location.href = storeLink;
     }, 2500);
   };
 
@@ -67,7 +79,7 @@ export function DeepLinkFallback({
           </button>
 
           <a
-            href={playStoreLink}
+            href={storeLink}
             className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background/50 px-6 py-4 text-sm font-semibold text-foreground transition-all hover:bg-muted"
           >
             <Download className="h-4 w-4" />
