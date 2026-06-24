@@ -1,132 +1,52 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Shield,
-  Database,
-  Share2,
-  Lock,
-  UserCheck,
-  Clock,
-  Baby,
-  RefreshCw,
-  Mail,
+  Heart,
+  Users,
+  Zap,
+  Globe,
+  MessageCircle,
   Sparkles,
 } from "lucide-react";
 import logo from "@/assets/unna-logo.jpg";
 
 export const Route = createFileRoute("/")({
-  component: PrivacyPage,
+  component: AboutPage,
   head: () => ({
     meta: [
-      { title: "Política de Privacidade — UNNA Social App" },
+      { title: "UNNA Social App — Conectando pessoas" },
       {
         name: "description",
         content:
-          "Política de Privacidade do UNNA Social App: como coletamos, usamos e protegemos seus dados.",
+          "Conheça o UNNA Social App, a plataforma feita para criar conexões verdadeiras.",
       },
     ],
   }),
 });
 
-const sections = [
+const features = [
   {
-    icon: Database,
-    title: "1. Informações que coletamos",
-    body: (
-      <ul className="space-y-2.5">
-        <li><span className="font-semibold text-foreground">Dados de cadastro:</span> nome, e-mail, nome de usuário, foto de perfil e data de nascimento.</li>
-        <li><span className="font-semibold text-foreground">Conteúdo gerado:</span> publicações, mensagens, comentários, curtidas e mídias enviadas.</li>
-        <li><span className="font-semibold text-foreground">Dados de uso:</span> interações, páginas visitadas, tempo de uso e preferências.</li>
-        <li><span className="font-semibold text-foreground">Dispositivo:</span> modelo, sistema operacional, identificador único, idioma e dados de rede.</li>
-        <li><span className="font-semibold text-foreground">Localização:</span> apenas quando você concede permissão expressa.</li>
-      </ul>
-    ),
+    icon: Users,
+    title: "Comunidade Vibrante",
+    body: "Encontre e conecte-se com pessoas incríveis que compartilham as mesmas paixões, ideias e interesses que você.",
   },
   {
-    icon: Sparkles,
-    title: "2. Como usamos suas informações",
-    body: (
-      <ul className="space-y-2.5 list-disc list-inside">
-        <li>Fornecer, manter e melhorar as funcionalidades do UNNA.</li>
-        <li>Personalizar sua experiência e recomendar conteúdo relevante.</li>
-        <li>Garantir a segurança da conta e prevenir fraudes ou abusos.</li>
-        <li>Enviar notificações e comunicações sobre o serviço.</li>
-        <li>Cumprir obrigações legais e regulatórias.</li>
-      </ul>
-    ),
+    icon: MessageCircle,
+    title: "Conexões Reais",
+    body: "Interaja de forma autêntica através de mensagens, posts e interações pensadas para aproximar as pessoas.",
   },
   {
-    icon: Share2,
-    title: "3. Compartilhamento de dados",
-    body: (
-      <>
-        <p className="mb-3">Não vendemos seus dados pessoais. Podemos compartilhar informações com:</p>
-        <ul className="space-y-2.5 list-disc list-inside">
-          <li>Provedores de infraestrutura, armazenamento em nuvem e analytics.</li>
-          <li>Autoridades competentes, quando exigido por lei.</li>
-          <li>Outros usuários, conforme as configurações de privacidade do seu perfil.</li>
-        </ul>
-      </>
-    ),
+    icon: Globe,
+    title: "Sem Fronteiras",
+    body: "O UNNA aproxima o mundo de você, permitindo explorar novas culturas e fazer amizades onde quer que esteja.",
   },
   {
-    icon: Lock,
-    title: "4. Armazenamento e segurança",
-    body: (
-      <p>
-        Adotamos medidas técnicas e organizacionais para proteger seus dados contra acesso não
-        autorizado, perda ou alteração — incluindo criptografia em trânsito, controles de acesso
-        e monitoramento contínuo.
-      </p>
-    ),
-  },
-  {
-    icon: UserCheck,
-    title: "5. Seus direitos",
-    body: (
-      <>
-        <p className="mb-3">Em conformidade com a LGPD (Lei nº 13.709/2018) e o GDPR, você pode:</p>
-        <ul className="space-y-2.5 list-disc list-inside">
-          <li>Acessar, corrigir ou atualizar seus dados.</li>
-          <li>Solicitar a exclusão da sua conta e dos dados associados.</li>
-          <li>Revogar consentimentos previamente concedidos.</li>
-          <li>Solicitar a portabilidade dos dados.</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    icon: Clock,
-    title: "6. Retenção de dados",
-    body: (
-      <p>
-        Mantemos seus dados pelo tempo necessário para cumprir as finalidades desta Política ou
-        conforme exigido por lei. Após esse período, os dados são excluídos ou anonimizados.
-      </p>
-    ),
-  },
-  {
-    icon: Baby,
-    title: "7. Privacidade de menores",
-    body: (
-      <p>
-        O UNNA não é destinado a menores de 13 anos. Caso identifiquemos cadastro de menores sem
-        autorização dos responsáveis, a conta será removida.
-      </p>
-    ),
-  },
-  {
-    icon: RefreshCw,
-    title: "8. Alterações nesta Política",
-    body: (
-      <p>
-        Podemos atualizar esta Política periodicamente. Notificaremos sobre alterações relevantes
-        pelo aplicativo ou por e-mail.
-      </p>
-    ),
+    icon: Heart,
+    title: "Espaço Seguro",
+    body: "Seu bem-estar é essencial. Promovemos um ambiente respeitoso, onde todos podem se expressar livremente.",
   },
 ];
 
-function PrivacyPage() {
+function AboutPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
       {/* Background blobs */}
@@ -147,7 +67,7 @@ function PrivacyPage() {
 
       {/* Nav */}
       <header className="relative z-10">
-        <div className="mx-auto flex max-w-5xl items-center justify-center px-6 py-8">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-8">
           <div className="flex items-center gap-3 group">
             <img
               src={logo}
@@ -156,41 +76,62 @@ function PrivacyPage() {
             />
             <span className="text-2xl font-bold tracking-tight">UNNA</span>
           </div>
+          <a
+            href="/privacidade"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Política de Privacidade
+          </a>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="relative z-10 mx-auto max-w-5xl px-6 pt-6 pb-16 text-center">
+      <section className="relative z-10 mx-auto max-w-5xl px-6 pt-12 pb-20 text-center">
         <div
           className="mx-auto inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-md"
           style={{ background: "var(--gradient-unna-soft)" }}
         >
-          <Shield className="h-3.5 w-3.5" />
-          Atualizado em 15 de junho de 2026
+          <Sparkles className="h-3.5 w-3.5" />
+          A Nova Era das Redes Sociais
         </div>
-        <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-6xl">
-          Política de{" "}
+        <h1 className="mt-8 text-5xl font-extrabold tracking-tight sm:text-7xl">
+          Conectando você ao que{" "}
           <span
             className="bg-clip-text text-transparent"
             style={{ backgroundImage: "var(--gradient-unna)" }}
           >
-            Privacidade
+            realmente importa
           </span>
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          No <span className="font-semibold text-foreground">UNNA Social App</span>, sua
-          privacidade é prioridade. Saiba como coletamos, usamos e protegemos seus dados de forma
-          transparente.
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-xl">
+          O <span className="font-semibold text-foreground">UNNA</span> foi criado para ser mais que um app:
+          é um espaço desenhado para que suas ideias tenham voz e para que as conexões sejam profundas,
+          positivas e verdadeiras.
         </p>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="#explore"
+            className="inline-flex h-12 items-center justify-center rounded-full px-8 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-105"
+            style={{ background: "var(--gradient-unna)" }}
+          >
+            Explorar o UNNA
+          </a>
+        </div>
       </section>
 
-      {/* Sections grid */}
-      <main className="relative z-10 mx-auto max-w-5xl px-6 pb-20">
-        <div className="grid gap-5 sm:grid-cols-2">
-          {sections.map(({ icon: Icon, title, body }) => (
+      {/* Features grid */}
+      <main id="explore" className="relative z-10 mx-auto max-w-5xl px-6 pb-24 pt-12">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Por que escolher o UNNA?</h2>
+          <p className="mt-4 text-muted-foreground">Tudo o que você precisa para uma experiência social única.</p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2">
+          {features.map(({ icon: Icon, title, body }) => (
             <article
               key={title}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-md transition-all hover:-translate-y-1 hover:border-transparent hover:shadow-[var(--shadow-unna)]"
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card/60 p-8 backdrop-blur-md transition-all hover:-translate-y-1 hover:border-transparent hover:shadow-[var(--shadow-unna)]"
             >
               <div
                 className="pointer-events-none absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100"
@@ -198,48 +139,46 @@ function PrivacyPage() {
               />
               <div className="relative">
                 <div
-                  className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-lg"
+                  className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-xl"
                   style={{ background: "var(--gradient-unna)" }}
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-6 w-6" />
                 </div>
-                <h2 className="mb-3 text-lg font-semibold tracking-tight">{title}</h2>
-                <div className="text-sm leading-relaxed text-muted-foreground">{body}</div>
+                <h3 className="mb-3 text-xl font-bold tracking-tight">{title}</h3>
+                <p className="text-base leading-relaxed text-muted-foreground">{body}</p>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Contact CTA */}
+        {/* Highlight Section */}
         <div
-          className="relative mt-10 overflow-hidden rounded-3xl border border-border p-8 sm:p-10"
+          className="relative mt-16 overflow-hidden rounded-[2rem] border border-border p-10 sm:p-16 text-center"
           style={{ background: "var(--gradient-unna)" }}
         >
           <div className="absolute inset-0 bg-black/10" />
-          <div className="relative flex flex-col items-start justify-between gap-6 text-white sm:flex-row sm:items-center">
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md">
-                <Mail className="h-6 w-6" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold">9. Fale com a gente</h2>
-                <p className="mt-1 max-w-md text-sm text-white/85">
-                  Dúvidas, solicitações ou exercício de direitos? Estamos à disposição.
-                </p>
-              </div>
-            </div>
-            <a
-              href="mailto:privacidade@unnaapp.com"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-foreground shadow-lg transition-transform hover:scale-105"
-            >
-              privacidade@unnaapp.com
-            </a>
+          <div className="relative z-10 flex flex-col items-center">
+            <Zap className="h-12 w-12 text-white/90 mb-6" />
+            <h2 className="text-3xl font-bold text-white sm:text-5xl">Pronto para a evolução?</h2>
+            <p className="mt-4 max-w-xl text-lg text-white/80">
+              Faça parte da nossa comunidade e descubra um novo jeito de compartilhar a vida,
+              fazer amigos e se expressar.
+            </p>
+            <button className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold text-foreground shadow-xl transition-transform hover:scale-105">
+              Baixe agora (Em breve)
+            </button>
           </div>
         </div>
       </main>
 
-      <footer className="relative z-10 border-t border-border/50 py-8 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} UNNA Social App · Todos os direitos reservados
+      <footer className="relative z-10 border-t border-border/50 py-10 text-center">
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <img src={logo} alt="UNNA" className="h-6 w-6 rounded-md object-contain" />
+          <span className="font-bold tracking-tight">UNNA</span>
+        </div>
+        <p className="text-sm text-muted-foreground">
+          © {new Date().getFullYear()} UNNA Social App · Todos os direitos reservados
+        </p>
       </footer>
     </div>
   );
